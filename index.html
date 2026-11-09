@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>دعوة زفاف خالد & مروى | Royal Wedding Invitation</title>
+  
+  <!-- Premium Arabic & English Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cinzel:wght@600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0a0c13;
+      --bg-radial: radial-gradient(ellipse at 50% 15%, #1d192f 0%, #0d0f17 55%, #050609 100%);
+      --gold-primary: #e6c867;
+      --gold-light: #fff5d1;
+      --gold-dark: #a97924;
+      --gold-gradient: linear-gradient(135deg, #fff3c8 0%, #dfb542 35%, #a97924 75%, #ffe685 100%);
+      --gold-glow: 0 0 25px rgba(230, 200, 103, 0.45);
+      --card-bg: rgba(20, 23, 37, 0.82);
+      --card-border: 1px solid rgba(230, 200, 103, 0.32);
+      --text-muted: #b8b7cd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: var(--bg-radial);
+      background-attachment: fixed;
+      color: #ffffff;
+      font-family: 'Tajawal', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Ambient Subtle Floating Stardust & Soft Petals */
+    #fx-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Top Ambient Gold Accent Line */
+    .top-gold-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: var(--gold-gradient);
+      z-index: 1000;
+      box-shadow: 0 0 10px var(--gold-primary);
+    }
+
+    /* Floating Audio Player Button */
+    .audio-pill {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: rgba(18, 20, 32, 0.88);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 50px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), var(--gold-glow);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .audio-pill:hover {
+      transform: scale(1.05);
+      border-color: #fff;
+    }
+
+    .audio-pill:active {
+      transform: scale(0.95);
+    }
+
+    .audio-label {
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .audio-bars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .audio-bars span {
+      width: 2.5px;
+      background: var(--gold-primary);
+      border-radius: 2px;
+      animation: soundBar 1.2s ease-in-out infinite alternate;
+    }
+
+    .audio-bars span:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .audio-bars span:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+    .audio-bars span:nth-child(3) { height: 9px; animation-delay: 0.2s; }
+
+    .audio-pill.muted .audio-bars span {
+      animation: none;
+      height: 3px;
+      opacity: 0.4;
+    }
+
+    @keyframes soundBar {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+
+
+    /* =========================================================
+       SECTION 1: HERO / GRAND OPENING GATEWAY
+       ========================================================= */
+    .hero-gate {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      z-index: 20;
+    }
+
+    .chandelier-light {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(280px, 50vw, 450px);
+      height: 300px;
+      background: radial-gradient(ellipse at top, rgba(230, 200, 103, 0.35) 0%, rgba(169, 121, 36, 0.08) 50%, transparent 75%);
+      pointer-events: none;
+      animation: lightPulse 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes lightPulse {
+      0% { opacity: 0.65; transform: translateX(-50%) scale(0.95); }
+      100% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+    }
+
+    .bismillah-txt {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      color: var(--gold-light);
+      margin-bottom: 1.8rem;
+      text-shadow: 0 0 15px rgba(230, 200, 103, 0.4);
+    }
+
+    /* Royal Monogram Seal */
+    .monogram-badge {
+      position: relative;
+      width: 125px;
+      height: 125px;
+      margin: 0 auto 2rem;
+    }
+
+    .monogram-outer-ring {
+      position: absolute;
+      inset: -9px;
+      border: 1.5px dashed rgba(230, 200, 103, 0.45);
+      border-radius: 50%;
+      animation: rotateRing 30s linear infinite;
+    }
+
+    .monogram-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #242036, #0e101b);
+      border: 2px solid var(--gold-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px rgba(230, 200, 103, 0.35), inset 0 0 18px rgba(230, 200, 103, 0.2);
+      animation: sealFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes rotateRing {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes sealFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .monogram-inner .letters {
+      font-family: 'Amiri', serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .monogram-inner .sub {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      margin-top: 4px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .royal-pill {
+      display: inline-block;
+      padding: 6px 24px;
+      border-radius: 50px;
+      background: rgba(230, 200, 103, 0.12);
+      border: 1px solid rgba(230, 200, 103, 0.38);
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-main-title {
+      font-family: 'Amiri', serif;
+      font-size: clamp(2.3rem, 6.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 35px rgba(230, 200, 103, 0.35);
+    }
+
+    .hero-sub-p {
+      color: var(--text-muted);
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0 auto 2.8rem;
+    }
+
+    /* THE GRAND LUXURY OPEN BUTTON */
+    .btn-open-cinematic {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--gold-gradient);
+      color: #090a10;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.15rem, 3vw, 1.3rem);
+      padding: 18px 48px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(230, 200, 103, 0.45), 0 0 50px rgba(230, 200, 103, 0.25);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+    }
+
+    .btn-open-cinematic:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 45px rgba(230, 200, 103, 0.6), 0 0 65px rgba(255, 245, 209, 0.4);
+    }
+
+    .btn-open-cinematic:active {
+      transform: scale(0.97);
+    }
+
+    .btn-open-cinematic::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+      animation: buttonShine 3s infinite;
+    }
+
+    @keyframes buttonShine {
+      0% { left: -120%; }
+      50%, 100% { left: 120%; }
+    }
+
+    .btn-open-cinematic svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s;
+    }
+
+    .btn-open-cinematic:hover svg {
+      transform: translateY(4px);
+    }
+
+
+    /* =========================================================
+       SECTION 2: GRAND BALLROOM & DANCING COUPLE
+       ========================================================= */
+    .ballroom-stage {
+      padding: 5rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Grand Chandelier Vector */
+    .chandelier-graphic {
+      width: clamp(120px, 20vw, 160px);
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 15px rgba(230, 200, 103, 0.5));
+      animation: chandelierSway 6s ease-in-out infinite alternate;
+      transform-origin: top center;
+    }
+
+    @keyframes chandelierSway {
+      0% { transform: rotate(-2deg); }
+      100% { transform: rotate(2deg); }
+    }
+
+    .stage-spotlight {
+      position: absolute;
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(350px, 70vw, 680px);
+      height: 600px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(230, 200, 103, 0.22) 0%, rgba(169, 121, 36, 0.06) 60%, transparent 80%);
+      filter: blur(35px);
+      pointer-events: none;
+      animation: spotlightBreathe 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes spotlightBreathe {
+      0% { transform: translateX(-50%) scale(0.92); opacity: 0.7; }
+      100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+    }
+
+    /* Names Display */
+    .names-header {
+      margin-bottom: 2rem;
+    }
+
+    .names-row {
+      font-family: 'Amiri', serif;
+      font-size: clamp(3rem, 9vw, 4.2rem);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .name-gold {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 14px rgba(230, 200, 103, 0.4));
+    }
+
+    .name-amp {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 6vw, 2.8rem);
+      color: var(--gold-primary);
+      text-shadow: 0 0 20px rgba(230, 200, 103, 0.65);
+    }
+
+    .names-caption {
+      color: var(--gold-light);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      margin-top: 0.6rem;
+      letter-spacing: 1.5px;
+      opacity: 0.9;
+    }
+
+    /* DANCING COUPLE STAGE */
+    .dance-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      height: 410px;
+      margin: 1rem auto 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floor-glow-circle {
+      position: absolute;
+      bottom: 15px;
+      width: 270px;
+      height: 50px;
+      background: radial-gradient(ellipse at center, rgba(230, 200, 103, 0.5) 0%, rgba(230, 200, 103, 0.12) 50%, transparent 80%);
+      border-radius: 50%;
+      filter: blur(12px);
+      animation: floorPulsing 4s ease-in-out infinite;
+    }
+
+    @keyframes floorPulsing {
+      0%, 100% { transform: scale(0.92); opacity: 0.6; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    .orbit-stardust {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 1px dashed rgba(230, 200, 103, 0.25);
+      animation: orbitSpin 18s linear infinite;
+      pointer-events: none;
+    }
+
+    .orbit-stardust::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 14px 3px var(--gold-light);
+    }
+
+    @keyframes orbitSpin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .couple-svg-art {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(230, 200, 103, 0.45));
+      animation: waltzDance 6s ease-in-out infinite alternate;
+      transform-origin: 50% 90%;
+    }
+
+    @keyframes waltzDance {
+      0% { transform: rotate(-3deg) translateY(0px) scale(1); }
+      30% { transform: rotate(1.5deg) translateY(-7px) scale(1.02); }
+      60% { transform: rotate(3deg) translateY(-2px) scale(1.01); }
+      85% { transform: rotate(0deg) translateY(-6px) scale(1.02); }
+      100% { transform: rotate(-3deg) translateY(0px) scale(1); }
+    }
+
+    .dress-sway-flow {
+      animation: dressSway 4s ease-in-out infinite alternate;
+      transform-origin: 50% 100%;
+    }
+
+    @keyframes dressSway {
+      0% { transform: skewX(-2deg); }
+      100% { transform: skewX(2.5deg); }
+    }
+
+
+    /* =========================================================
+       SECTION 3: CLASSICAL ARABIC POETRY (بيتين شعر فصيح)
+       ========================================================= */
+    .poetry-box {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .poetry-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: var(--card-border);
+      border-radius: 24px;
+      padding: clamp(2.4rem, 5vw, 3.2rem) clamp(1.4rem, 4vw, 2.5rem);
+      position: relative;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), inset 0 0 30px rgba(230, 200, 103, 0.12);
+      text-align: center;
+    }
+
+    .poetry-card::before, .poetry-card::after {
+      content: '❖';
+      position: absolute;
+      color: var(--gold-primary);
+      font-size: 1.35rem;
+      opacity: 0.85;
+    }
+    .poetry-card::before { top: 18px; right: 22px; }
+    .poetry-card::after { bottom: 18px; left: 22px; }
+
+    .poetry-dec-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 1.8rem;
+    }
+
+    .poetry-dec-top .line {
+      width: 80px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+
+    .poetry-dec-top svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--gold-primary);
+    }
+
+    .poetry-line {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.4rem, 3.8vw, 1.85rem);
+      line-height: 2.3;
+      color: #fffaf0;
+      margin-bottom: 1.4rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .name-highlight {
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-shadow: 0 0 18px rgba(230, 200, 103, 0.7);
+      display: inline-block;
+    }
+
+    .poetry-star {
+      color: var(--gold-primary);
+      margin: 0 10px;
+      font-size: 1.2rem;
+    }
+
+
+    /* =========================================================
+       SECTION 4: WEDDING DETAILS & COUNTDOWN
+       ========================================================= */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border: var(--card-border);
+      border-radius: 20px;
+      padding: 2.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-primary);
+    }
+
+    .info-icon {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: rgba(230, 200, 103, 0.14);
+      border: 1.5px solid rgba(230, 200, 103, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      color: var(--gold-primary);
+    }
+
+    .info-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .info-card h3 {
+      font-family: 'Amiri', serif;
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .info-card .val-strong {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 0.3rem;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Live Countdown Widget */
+    .countdown-widget {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+
+    .countdown-hdr {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+      color: var(--gold-light);
+      margin-bottom: 1.4rem;
+    }
+
+    .countdown-row {
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.8rem, 2.5vw, 1.4rem);
+      flex-wrap: wrap;
+    }
+
+    .time-slot {
+      background: rgba(24, 27, 44, 0.9);
+      border: 1px solid rgba(230, 200, 103, 0.32);
+      border-radius: 16px;
+      width: clamp(72px, 18vw, 92px);
+      padding: 1.1rem 0.4rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .time-slot .number {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--gold-primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .time-slot .label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      display: block;
+    }
+
+
+    /* =========================================================
+       SECTION 5: HALL LOCATION (موقع القاعة)
+       ========================================================= */
+    .venue-section {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 4rem;
+    }
+
+    .venue-card {
+      background: var(--card-bg);
+      border: var(--card-border);
+      border-radius: 24px;
+      padding: clamp(2.2rem, 5vw, 3.2rem) clamp(1.4rem, 4vw, 2.5rem);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      text-align: center;
+    }
+
+    .venue-badge-tag {
+      display: inline-block;
+      padding: 5px 20px;
+      border-radius: 30px;
+      background: rgba(230, 200, 103, 0.16);
+      color: var(--gold-primary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .venue-main-name {
+      font-family: 'Amiri', serif;
+      font-size: clamp(2rem, 5.5vw, 2.7rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .venue-sub-address {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Native Interactive Map Card */
+    .map-interactive-view {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(230, 200, 103, 0.4);
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #161826, #0e1018);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .map-grid-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background-size: 34px 34px;
+      background-image: 
+        linear-gradient(to right, rgba(230, 200, 103, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(230, 200, 103, 0.3) 1px, transparent 1px);
+    }
+
+    .map-pin-pulse {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pin-pulse-disc {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0c13;
+      box-shadow: 0 0 30px var(--gold-primary);
+      animation: pinPulseAnim 2.5s infinite;
+    }
+
+    @keyframes pinPulseAnim {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .pin-tag {
+      background: rgba(10, 12, 19, 0.94);
+      border: 1px solid var(--gold-primary);
+      padding: 7px 18px;
+      border-radius: 30px;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* Primary Google Maps Button */
+    .btn-action-maps {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 17px 38px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.15rem;
+      background: var(--gold-gradient);
+      color: #0a0c13;
+      box-shadow: 0 8px 25px rgba(230, 200, 103, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-action-maps:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(230, 200, 103, 0.6);
+    }
+
+    .btn-action-maps:active {
+      transform: scale(0.97);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 4rem;
+      border-top: 1px solid rgba(230, 200, 103, 0.15);
+      color: var(--text-muted);
+      font-size: 1rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    .heart-red {
+      color: #ff4757;
+      display: inline-block;
+      animation: heartBeat 1.4s infinite;
+      margin: 0 5px;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Ambient Line -->
+  <div class="top-gold-line"></div>
+
+  <!-- Floating Audio Player Button -->
+  <div class="audio-pill" id="audioPill" title="تشغيل / كتم الموسيقى">
+    <div class="audio-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="audio-label" id="audioLabel">نغم الزفاف</span>
+  </div>
+
+  <!-- Ambient Floating Golden Stardust & Delicate Petals Canvas -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- ==========================================
+       SECTION 1: HERO (GRAND OPENING SCREEN)
+       ========================================== -->
+  <header class="hero-gate" id="heroGate">
+    <div class="chandelier-light"></div>
+    
+    <div class="bismillah-txt">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <!-- Royal Monogram Seal -->
+    <div class="monogram-badge">
+      <div class="monogram-outer-ring"></div>
+      <div class="monogram-inner">
+        <span class="letters">خ & م</span>
+        <span class="sub">KHALID & MARWA</span>
+      </div>
+    </div>
+
+    <div class="royal-pill">دعوة زفاف مـلـكـيـة فاخرة</div>
+
+    <h1 class="hero-main-title">فرحة العمر واكتمال البدر</h1>
+    
+    <p class="hero-sub-p">
+      تتشرف عائلاتنا بدعوتكم لحضور حفل زفاف العروسين ومشاركتنا أجمل ليالي العمر، لتكتمل سعادتنا بجميل حضوركم ودعواتكم
+    </p>
+
+    <!-- Grand Cinematic Descent Button -->
+    <button class="btn-open-cinematic" id="openCinematicBtn">
+      <span>افتح الدعوة وعِش اللحظة</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- ==========================================
+       SECTION 2: GRAND BALLROOM & DANCING COUPLE
+       ========================================== -->
+  <main>
+    <section class="ballroom-stage" id="ballroomStage">
+      <div class="stage-spotlight"></div>
+
+      <!-- Royal Chandelier Graphic -->
+      <svg class="chandelier-graphic" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 0 L50 25" stroke="url(#goldGrad)" stroke-width="2.5"/>
+        <path d="M25 25 Q50 42 75 25" stroke="url(#goldGrad)" stroke-width="2.5" fill="none"/>
+        <path d="M15 35 Q50 60 85 35" stroke="url(#goldGrad)" stroke-width="2.5" fill="none"/>
+        <circle cx="50" cy="27" r="3.5" fill="#fff5d1"/>
+        <circle cx="25" cy="25" r="3" fill="#e6c867"/>
+        <circle cx="75" cy="25" r="3" fill="#e6c867"/>
+        <circle cx="15" cy="35" r="2.5" fill="#a97924"/>
+        <circle cx="85" cy="35" r="2.5" fill="#a97924"/>
+        <!-- Drops -->
+        <path d="M50 55 L47 67 L50 73 L53 67 Z" fill="url(#goldGrad)"/>
+        <path d="M32 45 L30 54 L32 58 L34 54 Z" fill="url(#goldGrad)"/>
+        <path d="M68 45 L66 54 L68 58 L70 54 Z" fill="url(#goldGrad)"/>
+        <defs>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff3c8"/>
+            <stop offset="50%" stop-color="#dfb542"/>
+            <stop offset="100%" stop-color="#a97924"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- Couple Names in Majestic Arabic Calligraphy -->
+      <div class="names-header">
+        <div class="names-row">
+          <span class="name-gold">خالد</span>
+          <span class="name-amp">&</span>
+          <span class="name-gold">مروى</span>
+        </div>
+        <p class="names-caption">اجتمع القلبان على المودة والوفاء وسنة المصطفى</p>
+      </div>
+
+      <!-- THE DANCING COUPLE (الزوجين يرقصوا بشكل راقي) -->
+      <div class="dance-wrapper">
+        <div class="orbit-stardust"></div>
+        <div class="floor-glow-circle"></div>
+
+        <!-- High-Class Luminous Vector Artwork: Bride & Groom Waltz -->
+        <svg class="couple-svg-art" viewBox="0 0 340 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bishtGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#252a3d"/>
+              <stop offset="50%" stop-color="#141724"/>
+              <stop offset="100%" stop-color="#0a0c14"/>
+            </linearGradient>
+            <linearGradient id="goldQasab" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffe88f"/>
+              <stop offset="50%" stop-color="#ffd24d"/>
+              <stop offset="100%" stop-color="#b38228"/>
+            </linearGradient>
+            <linearGradient id="brideGown" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="30%" stop-color="#fff8e7"/>
+              <stop offset="70%" stop-color="#f5e2b0"/>
+              <stop offset="100%" stop-color="#d4aa4c"/>
+            </linearGradient>
+            <filter id="goldShine" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="glow"/>
+              <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Stage Light Ambient Halo -->
+          <circle cx="170" cy="200" r="125" fill="rgba(255, 244, 204, 0.12)" filter="blur(25px)"/>
+
+          <!-- ================= GROOM: خالد ================= -->
+          <!-- Groom Head Silhouette -->
+          <ellipse cx="140" cy="92" rx="15" ry="18" fill="#181b29" stroke="url(#goldQasab)" stroke-width="1.5"/>
+          <!-- White Collar -->
+          <polygon points="135,110 145,110 140,128" fill="#ffffff"/>
+          <line x1="140" y1="110" x2="140" y2="135" stroke="url(#goldQasab)" stroke-width="2"/>
+
+          <!-- Royal Bisht Body -->
+          <path d="M140 110 C115 120 100 155 95 210 C90 255 88 320 95 380 L155 380 C156 310 160 250 156 210 C154 170 152 120 140 110 Z" 
+                fill="url(#bishtGlow)" 
+                stroke="rgba(255, 232, 143, 0.45)" 
+                stroke-width="1.5"/>
+
+          <!-- Golden Embroidery on Bisht (قصب البشت المذهب) -->
+          <path d="M140 110 Q132 230 125 380" stroke="url(#goldQasab)" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#goldShine)"/>
+          <path d="M142 110 Q148 230 150 380" stroke="url(#goldQasab)" stroke-width="3" stroke-linecap="round" fill="none" filter="url(#goldShine)"/>
+
+          <!-- Groom Arms in Waltz Pose -->
+          <path d="M120 135 C125 160 150 170 185 158" stroke="url(#bishtGlow)" stroke-width="11" stroke-linecap="round" fill="none"/>
+          <path d="M120 135 C125 160 150 170 185 158" stroke="url(#goldQasab)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M105 142 C120 180 165 198 195 190" stroke="url(#bishtGlow)" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+          <!-- ================= BRIDE: مروى ================= -->
+          <!-- Diamond Tiara Crown (تاج العروس الماسي) -->
+          <path d="M182 80 L187 72 L192 80 L197 73 L202 81" stroke="url(#goldQasab)" stroke-width="2.5" fill="none" filter="url(#goldShine)"/>
+          <circle cx="192" cy="74" r="2.5" fill="#ffffff" filter="url(#goldShine)"/>
+
+          <!-- Bride Hair Updo -->
+          <ellipse cx="192" cy="94" rx="14" ry="16" fill="#321e15" stroke="url(#goldQasab)" stroke-width="1.5"/>
+
+          <!-- Flowing Cathedral Veil (طرحة العروس الملكية المنسدلة) -->
+          <path d="M195 86 C225 105 245 170 245 280 C245 340 230 380 215 390" 
+                fill="none" 
+                stroke="rgba(255, 255, 255, 0.75)" 
+                stroke-width="2.5" 
+                stroke-dasharray="5 3" 
+                filter="url(#goldShine)"/>
+
+          <!-- Bride Arm resting gracefully on groom's shoulder -->
+          <path d="M188 125 C174 120 156 118 144 126" stroke="#fae5d3" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+          <path d="M186 160 C188 152 186 148 184 140" stroke="#fae5d3" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+          <!-- Bride Bodice -->
+          <path d="M184 112 C178 124 172 146 176 170 C180 182 196 184 202 174 C205 156 200 126 193 112 Z" 
+                fill="url(#brideGown)" 
+                stroke="url(#goldQasab)" 
+                stroke-width="1.5"
+                filter="url(#goldShine)"/>
+
+          <!-- Flowing Royal Ballgown with Gold Details -->
+          <g class="dress-sway-flow">
+            <path d="M176 170 C155 200 135 255 125 380 C165 398 235 398 285 380 C272 300 245 215 202 172 Z" 
+                  fill="url(#brideGown)"
+                  stroke="rgba(255, 255, 255, 0.85)"
+                  stroke-width="1.5"
+                  filter="url(#goldShine)"/>
+
+            <!-- Dress Shimmer Folds -->
+            <path d="M184 178 Q165 270 152 380" stroke="rgba(255, 255, 255, 0.8)" stroke-width="2.5" fill="none"/>
+            <path d="M192 178 Q202 270 218 380" stroke="rgba(255, 255, 255, 0.7)" stroke-width="2.5" fill="none"/>
+            <path d="M198 180 Q235 280 258 380" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2" fill="none"/>
+
+            <!-- Hem Gold Embroidery -->
+            <path d="M125 380 Q205 405 285 380" stroke="url(#goldQasab)" stroke-width="5" fill="none" filter="url(#goldShine)"/>
+          </g>
+
+          <!-- Sparkling Stars -->
+          <circle cx="165" cy="145" r="3.5" fill="#ffffff" filter="url(#goldShine)"/>
+          <circle cx="210" cy="210" r="3" fill="#ffe88f" filter="url(#goldShine)"/>
+          <circle cx="135" cy="240" r="2.5" fill="#ffffff" filter="url(#goldShine)"/>
+          <circle cx="178" cy="300" r="3.5" fill="#ffd24d" filter="url(#goldShine)"/>
+          <circle cx="250" cy="260" r="3" fill="#ffffff" filter="url(#goldShine)"/>
+        </svg>
+      </div>
+
+      <!-- ==========================================
+           SECTION 3: CLASSICAL ARABIC POETRY (بيتين شعر فصيح)
+           ========================================== -->
+      <div class="poetry-box">
+        <div class="poetry-card">
+          <div class="poetry-dec-top">
+            <span class="line"></span>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L14.5 8.5L21.5 9.5L16.5 14.5L18 21.5L12 18L6 21.5L7.5 14.5L2.5 9.5L9.5 8.5L12 2Z"/>
+            </svg>
+            <span class="line"></span>
+          </div>
+
+          <!-- البيت الأول الفصيح -->
+          <div class="poetry-line">
+            تَلَاقَتْ قُـلُـوبٌ بِالـهَـوَى وَتَـآلَفَتْ
+            <span class="poetry-star">❖</span>
+            فَـأَشْرَقَ كَـوْنٌ بِالهَنَاءِ وَنَـوَّرَا
+          </div>
+
+          <!-- البيت الثاني المخصص لخالد ومروى -->
+          <div class="poetry-line">
+            تَبَارَكَ مَنْ صَاغَ المَوَدَّةَ بَيْنَهُمَا
+            <span class="poetry-star">❖</span>
+            وَزَفَّ لِـ <span class="name-highlight">«خَالِـدٍ»</span> فِي السَّعْدِ <span class="name-highlight">«مَـرْوَى»</span>
+          </div>
+
+          <div class="poetry-dec-top" style="margin-top: 1.8rem; margin-bottom: 0;">
+            <span class="line" style="width: 130px;"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           SECTION 4: WEDDING DETAILS & COUNTDOWN
+           ========================================== -->
+      <div class="details-grid">
+        <!-- Date Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>التاريخ الميمون</h3>
+          <p>يوم الجمعة المبارك</p>
+          <div class="val-strong">28 نوفمبر 2026 م</div>
+          <p style="font-size: 0.95rem; margin-top: 3px;">الموافق 19 جمادى الأولى 1448 هـ</p>
+        </div>
+
+        <!-- Time Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>التوقيت والزفة</h3>
+          <p>استقبال الضيوف الكرام</p>
+          <div class="val-strong">الساعة 8:30 مساءً</div>
+          <p style="font-size: 0.95rem; margin-top: 3px;">وبداية مراسم الزفة الساعة 9:30 مساءً</p>
+        </div>
+      </div>
+
+      <!-- Live Countdown Widget -->
+      <div class="countdown-widget">
+        <h3 class="countdown-hdr">بقي على موعد لقائنا السعيد</h3>
+        <div class="countdown-row">
+          <div class="time-slot">
+            <span class="number" id="days">00</span>
+            <span class="label">أيام</span>
+          </div>
+          <div class="time-slot">
+            <span class="number" id="hours">00</span>
+            <span class="label">ساعة</span>
+          </div>
+          <div class="time-slot">
+            <span class="number" id="minutes">00</span>
+            <span class="label">دقيقة</span>
+          </div>
+          <div class="time-slot">
+            <span class="number" id="seconds">00</span>
+            <span class="label">ثانية</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           SECTION 5: HALL LOCATION (موقع القاعة)
+           ========================================== -->
+      <div class="venue-section" id="venueSection">
+        <div class="venue-card">
+          <div class="venue-badge-tag">مقر الاحتفال</div>
+          <h2 class="venue-main-name">قاعة رويال بالاس الملكية</h2>
+          <p class="venue-sub-address">القاعة الكبرى - طريق الملك فهد (أو موقعكم المختار)</p>
+
+          <!-- Interactive Native Map Card -->
+          <div class="map-interactive-view">
+            <div class="map-grid-lines"></div>
+            <div class="map-pin-pulse">
+              <div class="pin-pulse-disc">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+              </div>
+              <div class="pin-tag">قاعة رويال بالاس الملكية للأفراح</div>
+            </div>
+          </div>
+
+          <!-- Direct Google Maps Action Button -->
+          <a href="https://maps.google.com/?q=24.7135517,46.675295" target="_blank" rel="noopener noreferrer" class="btn-action-maps">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <span>فتح الموقع في Google Maps</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>بارك الله لهما وبارك عليهما وجمع بينهما في خير</p>
+    <p style="margin-top: 6px; font-size: 0.95rem; opacity: 0.85;">
+      دعوة زفاف خاصة بالعروسين <span style="color: var(--gold-light); font-weight: 700;">خالد ومروى</span> <span class="heart-red">♥</span>
+    </p>
+  </footer>
+
+
+  <!-- ==========================================
+       SCRIPTS: AUDIO & SMOOTH LUXURY TRANSITION
+       ========================================== -->
+  <script>
+    // --- 1. Synthesized Romance Music Engine (Web Audio API) ---
+    let audioCtx = null;
+    let isPlaying = false;
+    let melodyTimer = null;
+
+    function initAudioEngine() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playSoftHarpNote(frequency, duration = 2.2, startTime = 0) {
+      if (!audioCtx || !isPlaying) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(frequency, audioCtx.currentTime + startTime);
+
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime + startTime);
+        gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + startTime + 0.05);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + startTime + duration);
+
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc.start(audioCtx.currentTime + startTime);
+        osc.stop(audioCtx.currentTime + startTime + duration);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    // Gentle Wedding Progression (Pachelbel Canon / Arabesque)
+    const romanticScale = [
+      329.63, 415.30, 493.88, 659.25, // E Major
+      246.94, 311.13, 369.99, 493.88, // B Major
+      277.18, 329.63, 415.30, 554.37, // C# Minor
+      220.00, 277.18, 329.63, 440.00  // A Major
+    ];
+
+    let noteIdx = 0;
+    function playMelodyLoop() {
+      if (!isPlaying) return;
+      playSoftHarpNote(romanticScale[noteIdx % romanticScale.length], 2.2, 0);
+      noteIdx++;
+      melodyTimer = setTimeout(playMelodyLoop, 580);
+    }
+
+    function startMusic() {
+      initAudioEngine();
+      isPlaying = true;
+      document.getElementById('audioPill').classList.remove('muted');
+      document.getElementById('audioLabel').textContent = "إيقاف الصوت";
+      playMelodyLoop();
+    }
+
+    function stopMusic() {
+      isPlaying = false;
+      clearTimeout(melodyTimer);
+      document.getElementById('audioPill').classList.add('muted');
+      document.getElementById('audioLabel').textContent = "تشغيل النغم";
+    }
+
+    function toggleMusic() {
+      if (isPlaying) {
+        stopMusic();
+      } else {
+        startMusic();
+      }
+    }
+
+    document.getElementById('audioPill').addEventListener('click', toggleMusic);
+
+
+    // --- 2. LUXURIOUS CINEMATIC DESCENT (انتقال فخم وناعم جداً بدون ألعاب نارية) ---
+    const openBtn = document.getElementById('openCinematicBtn');
+    const ballroomStage = document.getElementById('ballroomStage');
+
+    // Custom smooth scroll with majestic cubic-bezier ease
+    function smoothDescentTo(targetEl, duration = 1400) {
+      const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+      const startPos = window.pageYOffset;
+      const distance = targetPos - startPos;
+      let startTime = null;
+
+      function easeInOutCubic(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
+      }
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutCubic(timeElapsed, startPos, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        } else {
+          window.scrollTo(0, targetPos);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    openBtn.addEventListener('click', () => {
+      // 1. Play serene harp melody
+      if (!isPlaying) {
+        startMusic();
+      }
+
+      // 2. Majestic, gentle, and calm descent straight to the dancing couple & poetry
+      smoothDescentTo(ballroomStage, 1400);
+    });
+
+    // Handle touch for audio permission
+    document.body.addEventListener('touchstart', () => {
+      if (!audioCtx) initAudioEngine();
+    }, { once: true });
+
+
+    // --- 3. Calm Ambient Canvas: Gentle Floating Stardust & Petals ---
+    const canvas = document.getElementById('fx-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    const totalParticles = 36; // Peaceful, tranquil density
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2.6 + 1;
+        this.speedY = Math.random() * 0.6 + 0.25;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.2;
+        this.isPetal = Math.random() > 0.65;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.015;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX + Math.sin(this.angle) * 0.25;
+        this.angle += this.spin;
+
+        if (this.y > height + 20) {
+          this.y = -10;
+          this.x = Math.random() * width;
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        if (this.isPetal) {
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, 240, 225, ${this.opacity * 0.8})`;
+          ctx.ellipse(0, 0, this.size * 2, this.size * 1.1, 0, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(230, 200, 103, ${this.opacity})`;
+          ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < totalParticles; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateCanvas);
+    }
+    animateCanvas();
+
+
+    // --- 4. Wedding Live Countdown ---
+    const targetDate = new Date("2026-11-28T20:30:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      let diff = targetDate - now;
+      if (diff < 0) diff = 0;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
